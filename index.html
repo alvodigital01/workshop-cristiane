@@ -43,9 +43,12 @@
     h3 { font-size: clamp(1.1rem,2.5vw,1.4rem); font-weight: 600; }
 
     .eyebrow {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--dourado);
-      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 1rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: max-content; max-width: 100%;
+      padding: .5rem 1.3rem; border: 1.5px solid #22b55f; border-radius: 100px;
+      background: #dff2e6; color: #006b45;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em;
+      text-transform: uppercase; margin-bottom: 1rem;
     }
 
     /* ─── LAYOUT ─── */
@@ -524,25 +527,37 @@
     /* ══════════════════════════════════════
        FOOTER
     ══════════════════════════════════════ */
-    #footer { background: #000; padding: 4rem 0 2rem; }
+    #footer {
+      background: var(--verde); padding: 4rem 0 2rem;
+      position: relative; isolation: isolate;
+    }
+    #footer::before {
+      content: ''; position: absolute; z-index: -1;
+      top: -44px; left: -5%; width: 110%; height: 74px;
+      background: var(--verde);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
     .footer-logo {
       width: 72px; height: 72px; margin-bottom: 1.25rem;
       border-radius: 50% 50% 50% 12px; object-fit: cover; object-position: top center;
       border: 2px solid rgba(200,146,42,.7); box-shadow: 0 12px 28px rgba(0,0,0,.28);
     }
-    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: rgba(255,255,255,.85); margin-bottom: 1.25rem; }
-    .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 250px; }
-    .footer-col-title { font-size: .67rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--dourado); margin-bottom: 1.25rem; }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #000; margin-bottom: 1.25rem; }
+    .footer-tagline { font-size: .875rem; color: #000; line-height: 1.7; max-width: 250px; }
+    .footer-col-title { font-size: .67rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #000; margin-bottom: 1.25rem; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
-    .footer-links a { font-size: .875rem; color: rgba(255,255,255,.5); transition: color .2s; }
-    .footer-links a:hover { color: #fff; }
+    .footer-links a { font-size: .875rem; color: #000; transition: color .2s; }
+    .footer-links a:hover { color: #000; }
     .footer-socials { display: flex; flex-direction: column; gap: .75rem; }
-    .footer-social { display: inline-flex; align-items: center; gap: 10px; font-size: .875rem; color: rgba(255,255,255,.5); transition: color .2s; }
-    .footer-social:hover { color: #fff; }
+    .footer-social { display: inline-flex; align-items: center; gap: 10px; font-size: .875rem; color: #000; transition: color .2s; }
+    .footer-social:hover { color: #000; }
     .footer-social svg { width: 18px; height: 18px; flex-shrink: 0; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 2rem; text-align: center; }
-    .footer-copy { font-size: .75rem; color: rgba(255,255,255,.28); }
+    .footer-social[aria-label="Instagram"] svg,
+    .footer-social[aria-label="YouTube"] svg,
+    .footer-social[aria-label="WhatsApp"] svg { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(10,32,18,.18); padding-top: 2rem; text-align: center; }
+    .footer-copy { font-size: .75rem; color: #000; }
 
     @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -578,15 +593,16 @@
     .cta-leaf-2 { bottom: -30px; right: -40px; width: 200px; transform: rotate(180deg) scaleX(-1); }
 
     .cta-final-eyebrow {
-      font-size: .68rem; font-weight: 700; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--dourado);
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-bottom: 1.5rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: max-content; max-width: 100%;
+      padding: .5rem 1.3rem; border: 1.5px solid var(--dourado); border-radius: 100px;
+      background: rgba(200,146,42,.14); color: var(--dourado);
+      font-size: .72rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
     }
     .cta-final-eyebrow::before,
     .cta-final-eyebrow::after {
-      content: ''; display: block; width: 28px; height: 1.5px;
-      background: var(--dourado); flex-shrink: 0;
+      content: none;
     }
 
     .cta-final-title {
@@ -610,11 +626,11 @@
     }
 
     .btn-white {
-      background: #fff; color: var(--verde); border-color: #fff;
+      background: var(--verde); color: #fff; border-color: var(--verde);
     }
     .btn-white:hover {
-      background: var(--verde-claro); border-color: var(--verde-claro);
-      transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.18);
+      background: var(--verde-dark); border-color: var(--verde-dark);
+      transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,124,89,.35);
     }
     .btn-ghost-white {
       background: transparent; color: #fff; border-color: rgba(255,255,255,.55);
@@ -725,6 +741,10 @@
       display: flex; align-items: center; justify-content: center;
       gap: 1rem; margin-top: 1.5rem;
     }
+    .dep-cta {
+      display: flex; justify-content: center;
+      margin-top: 2.25rem;
+    }
     .dep-arrow {
       width: 46px; height: 46px; border-radius: 50%;
       border: 2px solid rgba(74,124,89,.3); background: #fff;
@@ -767,7 +787,10 @@
         <li><a href="#footer">Contato</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#workshop" class="btn btn-primary">Quero Participar</a>
+        <a href="#workshop" class="btn btn-primary btn-pulse">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H8.5a2.5 2.5 0 1 1 2.2-3.7L12 7z"/><path d="M12 7h3.5a2.5 2.5 0 1 0-2.2-3.7L12 7z"/></svg>
+          Quero Participar
+        </a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu">
         <span></span><span></span><span></span>
@@ -783,7 +806,10 @@
   <a href="#ebook" onclick="closeMobile()">Ebook</a>
   <a href="#sessao" onclick="closeMobile()">Sessões</a>
   <a href="#footer" onclick="closeMobile()">Contato</a>
-  <a href="#workshop" class="btn btn-primary" onclick="closeMobile()">Quero Participar</a>
+  <a href="#workshop" class="btn btn-primary btn-pulse" onclick="closeMobile()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H8.5a2.5 2.5 0 1 1 2.2-3.7L12 7z"/><path d="M12 7h3.5a2.5 2.5 0 1 0-2.2-3.7L12 7z"/></svg>
+    Quero Participar
+  </a>
 </div>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
@@ -803,8 +829,14 @@
           Aprenda a educar com empatia, limites e conexão real, sem culpa e sem medo de errar.
         </p>
         <div class="hero-ctas">
-          <a href="#workshop" class="btn btn-primary btn-pulse">Quero me inscrever</a>
-          <a href="#sobre" class="btn btn-ghost">Saiba mais</a>
+          <a href="#workshop" class="btn btn-primary btn-pulse">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Quero me inscrever
+          </a>
+          <a href="#sobre" class="btn btn-ghost btn-pulse">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            Saiba mais
+          </a>
         </div>
         <div class="hero-tag">
           <span class="pulse-dot" aria-hidden="true"></span>
@@ -907,7 +939,7 @@
           Online via Zoom
         </div>
       </div>
-      <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-primary">
+      <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-primary btn-pulse">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Garantir minha vaga
       </a>
@@ -936,7 +968,8 @@
             <li><span class="topic-num">5</span>Exercícios práticos para aplicar ainda esta semana em casa</li>
           </ul>
           <div class="ebook-cta-row">
-            <a href="https://pay.kiwify.com.br/LCY0Oux?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn4DIwYf7AD9GtEZq0dQR2jg8aE5CvMK5bF7ZTwdlbgLInnA1Ub09t_Ganjh4_aem_oepKBNj5HgxN5V3LmO8yHg&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener" class="btn btn-dourado">
+            <a href="https://pay.kiwify.com.br/LCY0Oux?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn4DIwYf7AD9GtEZq0dQR2jg8aE5CvMK5bF7ZTwdlbgLInnA1Ub09t_Ganjh4_aem_oepKBNj5HgxN5V3LmO8yHg&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener" class="btn btn-dourado btn-pulse">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               Acessar o Ebook
             </a>
             <p class="ebook-price-info">Disponível em formato PDF<br>Acesso imediato após a compra</p>
@@ -991,7 +1024,7 @@
       </div>
 
       <div class="fade-up">
-        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.95rem;padding:1rem 2.5rem">
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary btn-pulse" style="font-size:.95rem;padding:1rem 2.5rem">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           Agendar minha sessão
         </a>
@@ -1021,7 +1054,10 @@
           <li>Material de apoio</li>
           <li>Suporte por e-mail</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-outline plano-btn">Começar</a>
+        <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-outline btn-pulse plano-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+          Começar
+        </a>
       </div>
 
       <!-- Transformação destaque -->
@@ -1038,7 +1074,10 @@
           <li>Suporte via WhatsApp</li>
           <li>Acesso ao workshop</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-featured plano-btn">Escolher</a>
+        <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-featured btn-pulse plano-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/><circle cx="12" cy="12" r="10"/></svg>
+          Escolher
+        </a>
       </div>
 
       <!-- Imersão -->
@@ -1054,7 +1093,10 @@
           <li>Acesso ao workshop + ebook</li>
           <li>Acompanhamento familiar</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-outline plano-btn">Começar</a>
+        <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-outline btn-pulse plano-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+          Começar
+        </a>
       </div>
     </div>
   </div>
@@ -1380,6 +1422,15 @@
     </div>
   </div>
 
+  <div class="container">
+    <div class="dep-cta fade-up">
+      <a href="#sessao" class="btn btn-primary btn-pulse">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M9 16l2 2 4-4"/></svg>
+        Agendar minha sessão
+      </a>
+    </div>
+  </div>
+
 </section>
 
 <!-- ═══════════════════ FAQ ═══════════════════ -->
@@ -1440,6 +1491,56 @@
         </button>
         <div class="faq-body"><div class="faq-body-inner">Sim! Aceitamos parcelamento em até 6x no cartão de crédito pela plataforma Kiwify.</div></div>
       </div>
+
+      <div class="faq-item fade-up">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q-text">A sessão diagnóstico é realmente gratuita?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Sim. A sessão diagnóstico tem 30 minutos e serve para entender o momento da sua família e indicar o melhor caminho.</div></div>
+      </div>
+
+      <div class="faq-item fade-up delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q-text">O atendimento é online ou presencial?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Os atendimentos podem acontecer online, com horário combinado, para que você consiga participar com mais praticidade.</div></div>
+      </div>
+
+      <div class="faq-item fade-up delay-2">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q-text">O ebook é indicado para quem ainda não fez o workshop?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Sim. O ebook foi pensado como uma porta de entrada prática, com exercícios e orientações para começar em casa.</div></div>
+      </div>
+
+      <div class="faq-item fade-up delay-3">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q-text">Recebo algum suporte depois da compra?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Sim. As instruções de acesso e os próximos passos são enviados após a confirmação, e você pode tirar dúvidas pelos canais indicados.</div></div>
+      </div>
+
+      <div class="faq-item fade-up delay-4">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q-text">Esse método substitui terapia infantil?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Não. O conteúdo é educativo e terapêutico para orientação parental, mas casos clínicos específicos devem ser avaliados individualmente.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1476,7 +1577,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 6l4-4 4 4"/><path d="M12 2v13"/><path d="M20 21H4a2 2 0 0 1-2-2V5"/><path d="M22 21V5a2 2 0 0 0-2-2"/></svg>
         Participar do Workshop
       </a>
-      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-ghost-white">
+      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-ghost-white btn-pulse">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         Agendar Sessão Diagnóstico
       </a>
