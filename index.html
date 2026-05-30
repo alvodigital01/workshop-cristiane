@@ -189,10 +189,15 @@
     @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:.8} 50%{transform:scale(1.6);opacity:0} }
 
     @media (max-width: 768px) {
-      #hero { margin-top: 56px; }
-      .hero-inner { min-height: 100%; }
+      #hero {
+        aspect-ratio: 750 / 900; margin-top: 56px;
+        background-image: url('./heromobile.jpg');
+      }
+      .hero-inner { min-height: 100%; justify-content: center; text-align: center; }
       .hero-content { width: 100%; }
-      .hero-sub { max-width: 100%; }
+      .hero-sub { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
+      .hero-tag { justify-content: center; }
     }
 
     /* ══════════════════════════════════════
@@ -239,9 +244,9 @@
       #sobre.section { padding: 3rem 0; }
       .sobre-grid { grid-template-columns: 1fr; gap: .8rem; }
       .sobre-content { display: contents; }
-      .sobre-content > .eyebrow { order: 1; }
-      .sobre-content > h2 { order: 2; margin-bottom: .4rem; }
-      .sobre-content > .sobre-bio { order: 3; margin: 0; line-height: 1.65; }
+      .sobre-content > .eyebrow { order: 1; margin-bottom: .65rem; }
+      .sobre-content > h2 { order: 2; margin-bottom: .2rem; }
+      .sobre-content > .sobre-bio { order: 3; margin: 0 !important; line-height: 1.65; }
       .sobre-photo-wrap { order: 4; max-width: 280px; margin: .75rem auto 0; }
       .selos { order: 5; margin-top: .75rem; justify-content: center; }
       .sobre-stat { right: 0; }
@@ -300,7 +305,7 @@
        EBOOK
     ══════════════════════════════════════ */
     #ebook { background: var(--branco); }
-    .ebook-grid { max-width: 780px; margin: 0 auto; }
+    .ebook-grid { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 5rem; }
     .ebook-content h2 { margin-bottom: 1.25rem; }
     .ebook-bio { font-size: .98rem; color: #555; line-height: 1.85; margin-bottom: 2rem; }
 
@@ -322,7 +327,7 @@
     .ebook-cta-row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
     .ebook-price-info { font-size: .8rem; color: #777; line-height: 1.4; }
 
-    .ebook-img-col { position: relative; display: flex; justify-content: center; margin: 0 0 2rem; }
+    .ebook-img-col { position: relative; display: flex; justify-content: center; }
     .ebook-shadow { position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 65%; height: 35px; background: rgba(74,124,89,.2); filter: blur(18px); border-radius: 50%; }
     .ebook-cover { width: 100%; max-width: 310px; border-radius: var(--radius); box-shadow: var(--shadow-lg); transition: all .4s var(--ease); }
     .ebook-cover:hover { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 32px 80px rgba(0,0,0,.2); }
@@ -335,7 +340,13 @@
     .ebook-cover-ph p { font-size: .78rem; opacity: .75; }
 
     @media (max-width: 768px) {
-      .ebook-grid { max-width: 100%; }
+      .ebook-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .ebook-content { display: contents; }
+      .ebook-content > .eyebrow { order: 1; }
+      .ebook-content > h2 { order: 2; }
+      .ebook-content > .ebook-bio { order: 3; margin-bottom: 0; }
+      .ebook-img-col { order: 4; margin: .5rem 0 1rem; }
+      .ebook-preview { order: 5; }
     }
 
     /* ══════════════════════════════════════
@@ -513,7 +524,7 @@
     /* ══════════════════════════════════════
        FOOTER
     ══════════════════════════════════════ */
-    #footer { background: var(--escuro); padding: 4rem 0 2rem; }
+    #footer { background: #0f2318; padding: 4rem 0 2rem; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
     .footer-logo {
       width: 72px; height: 72px; margin-bottom: 1.25rem;
@@ -553,22 +564,15 @@
 
     /* ─── CTA FINAL ─── */
     #cta-final {
-      background: var(--verde);
+      background: #04210D;
       position: relative; overflow: hidden;
       padding: 6rem 0;
       text-align: center;
     }
-    #cta-final::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 15% 50%, rgba(255,255,255,.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 85% 20%, rgba(200,146,42,.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    #cta-final::before { content: none; }
 
     .cta-leaf {
-      position: absolute; pointer-events: none; opacity: .1;
+      display: none;
     }
     .cta-leaf-1 { top: -30px; left: -40px; width: 220px; }
     .cta-leaf-2 { bottom: -30px; right: -40px; width: 200px; transform: rotate(180deg) scaleX(-1); }
@@ -916,20 +920,12 @@
   <div class="container">
     <div class="ebook-grid">
       <!-- Content left -->
-      <div class="fade-left">
+      <div class="ebook-content fade-left">
         <span class="eyebrow">Ebook</span>
         <h2>Primeiros Passos para uma Parentalidade Emocional</h2>
         <p class="ebook-bio" style="margin-top:1.25rem">
           Um guia prático e direto ao ponto com as primeiras ferramentas para começar a transformar a relação com seus filhos ainda esta semana.
         </p>
-        <div class="ebook-img-col">
-          <div class="ebook-shadow"></div>
-          <img src="./ebook.png" alt="Ebook: Primeiros Passos para uma Parentalidade Emocional" class="ebook-cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="ebook-cover-ph" style="display:none">
-            <h3>Primeiros Passos para uma Parentalidade Emocional</h3>
-            <p>Cristiane Cene Terapeuta</p>
-          </div>
-        </div>
         <div class="ebook-preview">
           <p class="ebook-preview-title">O que você vai encontrar:</p>
           <ul class="ebook-topics">
@@ -948,6 +944,15 @@
         </div>
       </div>
 
+      <!-- Cover right -->
+      <div class="ebook-img-col fade-right delay-1">
+        <div class="ebook-shadow"></div>
+        <img src="./ebook.png" alt="Ebook: Primeiros Passos para uma Parentalidade Emocional" class="ebook-cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ebook-cover-ph" style="display:none">
+          <h3>Primeiros Passos para uma Parentalidade Emocional</h3>
+          <p>Cristiane Cene Terapeuta</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1349,6 +1354,32 @@
 
     </div><!-- /dep-track -->
   </div><!-- /dep-marquee -->
+
+  <!-- ── MOBILE SLIDER ── -->
+  <div class="dep-slider" id="depSlider">
+    <div class="dep-slider-viewport">
+      <div class="dep-slider-track" id="depTrack">
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#9c27b0">A</div><div><div class="dep-name">Ana Paula M.</div><div class="dep-city">São Paulo, SP</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 1 semana</span></div><p class="dep-text">Depois do workshop entendi como me conectar de verdade com minha filha. Mudou tudo em casa.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#f44336">F</div><div><div class="dep-name">Fernanda R.</div><div class="dep-city">Curitiba, PR</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 2 semanas</span></div><p class="dep-text">A Cristiane tem um jeito único de explicar coisas complexas de forma simples e aplicável no dia a dia.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#009688">M</div><div><div class="dep-name">Mariana L.</div><div class="dep-city">Belo Horizonte, MG</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 3 semanas</span></div><p class="dep-text">Meu filho de 7 anos já consegue nomear o que sente. Não acreditei que fosse possível tão rápido.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#ff9800">J</div><div><div class="dep-name">Juliana C.</div><div class="dep-city">Porto Alegre, RS</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 1 mês</span></div><p class="dep-text">As crises que pareciam impossíveis de lidar ficaram muito mais tranquilas. A Cristiane me deu ferramentas reais.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#2196f3">C</div><div><div class="dep-name">Camila S.</div><div class="dep-city">Florianópolis, SC</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 1 mês</span></div><p class="dep-text">Aprendi a colocar limites com amor. Minha relação com meu filho de 5 anos mudou completamente.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#4caf50">R</div><div><div class="dep-name">Roberta M.</div><div class="dep-city">Brasília, DF</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 2 meses</span></div><p class="dep-text">O conteúdo da sessão diagnóstico já me deu clareza suficiente para transformar nossa rotina em casa.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#e91e63">P</div><div><div class="dep-name">Patrícia F.</div><div class="dep-city">Recife, PE</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 2 meses</span></div><p class="dep-text">Nunca imaginei que entender as emoções da minha filha pudesse ser tão transformador para mim também.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#3f51b5">D</div><div><div class="dep-name">Daniela V.</div><div class="dep-city">Goiânia, GO</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 3 meses</span></div><p class="dep-text">Método clínico de verdade. Não é só teoria, são técnicas que funcionam no mundo real, com filhos reais.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#f44336">L</div><div><div class="dep-name">Luciana B.</div><div class="dep-city">Manaus, AM</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 3 meses</span></div><p class="dep-text">Eu chorei na sessão de entender o porquê das birras. Tudo fez sentido e parei de me sentir culpada.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#7b1fa2">S</div><div><div class="dep-name">Sandra T.</div><div class="dep-city">Salvador, BA</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 4 meses</span></div><p class="dep-text">O pacote de 8 sessões foi um investimento que valeu cada centavo. Minha família está muito mais em paz.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#009688">A</div><div><div class="dep-name">Aline P.</div><div class="dep-city">Rio de Janeiro, RJ</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 4 meses</span></div><p class="dep-text">Cristiane é acolhedora, precisa e profunda. Em 30 minutos ela enxergou o que eu não conseguia ver em anos.</p></div>
+        <div class="dep-card"><div class="dep-card-top"><div class="dep-author"><div class="dep-avatar" style="background:#ff5722">R</div><div><div class="dep-name">Renata G.</div><div class="dep-city">Fortaleza, CE</div></div></div><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="dep-rating"><span class="dep-stars">★★★★★</span><span class="dep-time">há 5 meses</span></div><p class="dep-text">Meus filhos agora me procuram quando estão tristes em vez de explodir. Isso é o que eu mais queria.</p></div>
+      </div>
+    </div>
+    <div class="dep-controls">
+      <button class="dep-arrow" id="depPrev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="dep-dots" id="depDots"></div>
+      <button class="dep-arrow" id="depNext" aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+  </div>
+
 </section>
 
 <!-- ═══════════════════ FAQ ═══════════════════ -->
@@ -1625,6 +1656,45 @@
 
   /* ─── Observer para fade-left / fade-right / fade-scale ─── */
   document.querySelectorAll('.fade-left, .fade-right, .fade-scale').forEach(el => observer.observe(el));
+
+  /* ─── Mobile slider de depoimentos ─── */
+  (function() {
+    const track  = document.getElementById('depTrack');
+    const dotsEl = document.getElementById('depDots');
+    const prev   = document.getElementById('depPrev');
+    const next   = document.getElementById('depNext');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.dep-card');
+    const total = cards.length;
+    let cur = 0;
+
+    // Criar dots
+    cards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dep-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Depoimento ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    });
+
+    function goTo(idx) {
+      cur = (idx + total) % total;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      dotsEl.querySelectorAll('.dep-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+
+    prev.addEventListener('click', () => goTo(cur - 1));
+    next.addEventListener('click', () => goTo(cur + 1));
+
+    // Swipe touch
+    let startX = 0;
+    track.parentElement.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.parentElement.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? cur + 1 : cur - 1);
+    });
+  })();
 
   /* ─── Counter animado ─── */
   function animCounter(el) {
