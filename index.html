@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./iconlogo.png">
+  <link rel="apple-touch-icon" href="./iconlogo.png">
   <meta name="description" content="Cristiane Cene, terapeuta especialista em parentalidade consciente e inteligência emocional infantil.">
   <title>Cristiane Cene | Parentalidade com Inteligência Emocional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,9 +47,9 @@
     .eyebrow {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       width: max-content; max-width: 100%;
-      padding: .5rem 1.3rem; border: 1.5px solid #22b55f; border-radius: 100px;
+      padding: .38rem 1rem; border: 1.5px solid #22b55f; border-radius: 100px;
       background: #dff2e6; color: #006b45;
-      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em;
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em;
       text-transform: uppercase; margin-bottom: 1rem;
     }
 
@@ -67,8 +69,9 @@
     .btn-primary:hover { background: var(--verde-dark); border-color: var(--verde-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,124,89,.35); }
     .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
     .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
-    .btn-dourado { background: var(--dourado); color: #fff; border-color: var(--dourado); }
-    .btn-dourado:hover { background: #a87520; border-color: #a87520; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,42,.35); }
+    .btn-dourado { background: #D89B22; color: #fff; border-color: #D89B22; box-shadow: 0 10px 26px rgba(216,155,34,.28); }
+    .btn-dourado:hover { background: #B87912; border-color: #B87912; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(216,155,34,.42); }
+    .btn-dourado::before { content: none; }
     .btn-outline { background: transparent; color: var(--verde); border-color: var(--verde); }
     .btn-outline:hover { background: var(--verde); color: #fff; transform: translateY(-2px); }
 
@@ -92,10 +95,12 @@
       background: #fff; box-shadow: 0 2px 24px rgba(0,0,0,.08); padding: .55rem 0;
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .nav-logo { display: inline-flex; align-items: center; min-width: 168px; }
-    .nav-logo img { height: 48px; width: auto; filter: none; transition: filter .3s; }
+    .nav-logo { display: inline-flex; align-items: center; gap: .7rem; min-width: 190px; }
+    .nav-logo img { width: 44px; height: 44px; object-fit: contain; filter: none; transition: filter .3s; flex-shrink: 0; }
     .nav.scrolled .nav-logo img { filter: none; }
-    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--escuro); transition: color .3s; }
+    .nav-logo-copy { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-weight: 700; color: var(--escuro); transition: color .3s; white-space: nowrap; }
+    .nav-logo-sub { font-size: .58rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--verde); white-space: nowrap; }
     .nav.scrolled .nav-logo-text { color: var(--escuro); }
 
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
@@ -131,8 +136,10 @@
     .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.75rem; cursor: pointer; color: var(--escuro); line-height: 1; }
 
     @media (max-width: 768px) {
-      .nav-logo { min-width: 132px; }
-      .nav-logo img { height: 40px; }
+      .nav-logo { min-width: 0; gap: .55rem; }
+      .nav-logo img { width: 38px; height: 38px; }
+      .nav-logo-text { font-size: .95rem; }
+      .nav-logo-sub { font-size: .5rem; letter-spacing: .12em; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
     }
@@ -265,15 +272,16 @@
       border-radius: 50%; background: radial-gradient(circle, rgba(74,124,89,.15) 0%, transparent 70%); pointer-events: none;
     }
 
-    .workshop-head { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
-    .workshop-head h2 { margin-bottom: 1rem; }
+    .workshop-head { text-align: center; max-width: 760px; margin: 0 auto 2.4rem; }
+    .workshop-head h2 { margin-bottom: .85rem; }
     .workshop-desc { font-size: .98rem; color: #555; line-height: 1.8; }
 
-    .workshop-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 3rem; }
+    .workshop-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 2.2rem; }
     .ws-card {
-      background: #fff; border-radius: var(--radius); padding: 1.75rem;
-      box-shadow: var(--shadow-sm); border: 1px solid rgba(74,124,89,.1);
+      background: #fff; border-radius: var(--radius); padding: 1.85rem;
+      box-shadow: 0 12px 36px rgba(74,124,89,.08); border: 1px solid rgba(74,124,89,.12);
       position: relative; overflow: hidden; transition: all .35s var(--ease);
+      min-height: 190px;
     }
     .ws-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -283,26 +291,39 @@
     .ws-card:hover::before { transform: scaleX(1); }
     .ws-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     .ws-icon {
-      width: 42px; height: 42px; border-radius: 10px; background: var(--verde-claro);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+      width: 46px; height: 46px; border-radius: 11px; background: var(--verde-claro);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.15rem;
     }
-    .ws-icon svg { width: 20px; height: 20px; stroke: var(--verde); fill: none; stroke-width: 2; }
-    .ws-card p { font-size: .88rem; color: #555; line-height: 1.7; }
+    .ws-icon svg { width: 22px; height: 22px; stroke: var(--verde); fill: none; stroke-width: 2; }
+    .ws-card h3 {
+      font-family: 'Lato', sans-serif; font-size: .9rem; font-weight: 800;
+      color: var(--escuro); margin-bottom: .55rem; letter-spacing: .02em;
+    }
+    .ws-card p { font-size: .86rem; color: #555; line-height: 1.68; }
 
     .workshop-bar {
-      background: #fff; border-radius: var(--radius); padding: 1.5rem 2rem;
+      background: #fff; border-radius: var(--radius); padding: 1.2rem;
       display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-      box-shadow: var(--shadow-sm); flex-wrap: wrap; margin-bottom: 2.5rem;
+      box-shadow: 0 14px 40px rgba(74,124,89,.09); flex-wrap: wrap; margin-bottom: 2.5rem;
+      border: 1px solid rgba(74,124,89,.1);
     }
-    .bar-items { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .bar-item { display: flex; align-items: center; gap: 9px; font-size: .875rem; font-weight: 700; }
-    .bar-item svg { width: 17px; height: 17px; stroke: var(--verde); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .bar-items { display: grid; grid-template-columns: repeat(3, minmax(150px, 1fr)); gap: .85rem; flex: 1; }
+    .bar-item {
+      display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px;
+      padding: .85rem 1rem; border-radius: 10px; background: rgba(74,124,89,.06);
+    }
+    .bar-item svg { width: 18px; height: 18px; stroke: var(--verde); fill: none; stroke-width: 2; flex-shrink: 0; grid-row: span 2; }
+    .bar-label { font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--verde); line-height: 1; }
+    .bar-value { font-size: .86rem; font-weight: 800; color: var(--escuro); line-height: 1.25; }
+    .workshop-bar .btn { min-height: 54px; padding-inline: 1.7rem; }
     .workshop-cta { text-align: center; }
 
     @media (max-width: 768px) {
       .workshop-cards { grid-template-columns: 1fr; }
       .workshop-bar { flex-direction: column; text-align: center; }
-      .bar-items { justify-content: center; }
+      .bar-items { grid-template-columns: 1fr; width: 100%; }
+      .bar-item { text-align: left; }
+      .workshop-bar .btn { width: 100%; }
     }
 
     /* ══════════════════════════════════════
@@ -596,9 +617,9 @@
     .cta-final-eyebrow {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       width: max-content; max-width: 100%;
-      padding: .5rem 1.3rem; border: 1.5px solid var(--dourado); border-radius: 100px;
+      padding: .38rem 1rem; border: 1.5px solid var(--dourado); border-radius: 100px;
       background: rgba(200,146,42,.14); color: var(--dourado);
-      font-size: .72rem; font-weight: 800; letter-spacing: .16em;
+      font-size: .62rem; font-weight: 800; letter-spacing: .14em;
       text-transform: uppercase; margin-bottom: 1.5rem;
     }
     .cta-final-eyebrow::before,
@@ -778,8 +799,11 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo" aria-label="Cristiane Cene Terapeuta">
-        <img src="./logo.png" alt="Cristiane Cene Terapeuta" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="nav-logo-text" style="display:none">Cristiane Cene</span>
+        <img src="./iconlogo.png" alt="" aria-hidden="true">
+        <span class="nav-logo-copy">
+          <span class="nav-logo-text">Cristiane Cene</span>
+          <span class="nav-logo-sub">Terapeuta</span>
+        </span>
       </a>
       <ul class="nav-links">
         <li><a href="#workshop">Workshop</a></li>
@@ -909,19 +933,22 @@
         <div class="ws-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
-        <p>Como identificar e nomear emoções com seus filhos, criando um vocabulário emocional rico desde cedo.</p>
+        <h3>Vocabulário emocional</h3>
+        <p>Como identificar e nomear emoções com seus filhos, criando repertório emocional desde cedo.</p>
       </div>
       <div class="ws-card fade-up delay-1">
         <div class="ws-icon">
           <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </div>
-        <p>Técnicas práticas para crises e birras, transformando momentos difíceis em oportunidades de conexão.</p>
+        <h3>Crises e birras</h3>
+        <p>Técnicas práticas para transformar momentos difíceis em oportunidades de conexão.</p>
       </div>
       <div class="ws-card fade-up delay-2">
         <div class="ws-icon">
           <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <p>Como criar vínculos seguros e duradouros sem perder a autoridade e os limites saudáveis.</p>
+        <h3>Vínculo com limites</h3>
+        <p>Como fortalecer a conexão sem perder autoridade, clareza e limites saudáveis.</p>
       </div>
     </div>
 
@@ -929,20 +956,23 @@
       <div class="bar-items">
         <div class="bar-item">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          15 de Junho
+          <span class="bar-label">Data</span>
+          <span class="bar-value">15 de Junho</span>
         </div>
         <div class="bar-item">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          19h • Horário de Brasília
+          <span class="bar-label">Horário</span>
+          <span class="bar-value">19h Brasília</span>
         </div>
         <div class="bar-item">
           <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-          Online via Zoom
+          <span class="bar-label">Formato</span>
+          <span class="bar-value">Online via Zoom</span>
         </div>
       </div>
       <a href="https://pay.kiwify.com.br/exemplo" target="_blank" rel="noopener" class="btn btn-primary btn-pulse">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Garantir minha vaga
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
