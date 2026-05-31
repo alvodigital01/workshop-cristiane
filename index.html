@@ -24,10 +24,10 @@
       --verde: #4A7C59;
       --verde-claro: #EAF2ED;
       --verde-dark: #3a6347;
-      --dourado: #C8922A;
+      --dourado: #E5A321;
       --branco: #FFFFFF;
       --escuro: #1A1A1A;
-      --dourado-bg: rgba(200,146,42,0.10);
+      --dourado-bg: rgba(229,163,33,0.12);
       --verde-bg: rgba(74,124,89,0.08);
       --shadow-sm: 0 2px 12px rgba(74,124,89,0.08);
       --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
@@ -69,8 +69,8 @@
     .btn-primary:hover { background: var(--verde-dark); border-color: var(--verde-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,124,89,.35); }
     .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
     .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
-    .btn-dourado { background: #D89B22; color: #fff; border-color: #D89B22; box-shadow: 0 10px 26px rgba(216,155,34,.28); }
-    .btn-dourado:hover { background: #B87912; border-color: #B87912; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(216,155,34,.42); }
+    .btn-dourado { background: #E5A321; color: #fff; border-color: #E5A321; box-shadow: 0 10px 26px rgba(229,163,33,.34); }
+    .btn-dourado:hover { background: #C9850B; border-color: #C9850B; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(229,163,33,.48); }
     .btn-dourado::before { content: none; }
     .btn-outline { background: transparent; color: var(--verde); border-color: var(--verde); }
     .btn-outline:hover { background: var(--verde); color: #fff; transform: translateY(-2px); }
@@ -502,8 +502,8 @@
       font-size: .67rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
     }
 
-    .plano-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; margin-bottom: .2rem; }
-    .plano-sessions { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--verde); margin-bottom: 1.5rem; }
+    .plano-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 600; margin-bottom: .2rem; text-align: center; }
+    .plano-sessions { font-size: .9rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--verde); margin-bottom: 1.5rem; text-align: center; }
     .plano.featured .plano-sessions { color: rgba(255,255,255,.72); }
     .plano-price { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; line-height: 1; margin-bottom: .2rem; }
     .plano.featured .plano-price { color: #fff; }
@@ -648,7 +648,7 @@
     .footer-logo {
       width: 72px; height: 72px; margin-bottom: 1.25rem;
       border-radius: 50% 50% 50% 12px; object-fit: cover; object-position: top center;
-      border: 2px solid rgba(200,146,42,.7); box-shadow: 0 12px 28px rgba(0,0,0,.28);
+      border: 2px solid rgba(229,163,33,.82); box-shadow: 0 12px 28px rgba(0,0,0,.28);
     }
     .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #000; margin-bottom: 1.25rem; }
     .footer-tagline { font-size: .875rem; color: #000; line-height: 1.7; max-width: 250px; }
@@ -708,7 +708,7 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       width: max-content; max-width: 100%;
       padding: .38rem 1rem; border: 1.5px solid var(--dourado); border-radius: 100px;
-      background: rgba(200,146,42,.14); color: var(--dourado);
+      background: rgba(229,163,33,.18); color: var(--dourado);
       font-size: .62rem; font-weight: 800; letter-spacing: .14em;
       text-transform: uppercase; margin-bottom: 1.5rem;
     }
@@ -772,7 +772,7 @@
     }
 
     /* ─── SCROLL PROGRESS BAR ─── */
-    .scroll-bar { position:fixed; top:0; left:0; height:3px; z-index:9999; background:linear-gradient(90deg,var(--verde),var(--dourado)); width:0%; pointer-events:none; }
+    .scroll-bar { position:fixed; top:0; left:0; height:3px; z-index:9999; background:var(--verde); width:0%; pointer-events:none; }
 
     /* ─── BUTTON SHIMMER + RIPPLE ─── */
     .btn::before { content:''; position:absolute; top:0; left:-100%; width:55%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent); transform:skewX(-18deg); transition:left .55s var(--ease); }
@@ -1696,8 +1696,8 @@
     <path d="M110 100 Q142 120 152 144" stroke="rgba(255,255,255,0.35)" stroke-width=".8" fill="none"/>
   </svg>
   <svg class="cta-leaf cta-leaf-2" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-    <path d="M100 16C36 64 25 145 100 184 175 145 164 64 100 16Z" fill="rgba(200,146,42,0.6)" stroke="rgba(200,146,42,0.4)" stroke-width="1"/>
-    <path d="M100 16 Q100 100 100 184" stroke="rgba(200,146,42,0.4)" stroke-width="1" fill="none"/>
+    <path d="M100 16C36 64 25 145 100 184 175 145 164 64 100 16Z" fill="rgba(229,163,33,0.7)" stroke="rgba(229,163,33,0.5)" stroke-width="1"/>
+    <path d="M100 16 Q100 100 100 184" stroke="rgba(229,163,33,0.5)" stroke-width="1" fill="none"/>
   </svg>
 
   <div class="container" style="position:relative;z-index:2">
